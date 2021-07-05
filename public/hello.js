@@ -1,0 +1,1 @@
+Unresolved directive in <stdin> - include::complete/public/hello.js[]
