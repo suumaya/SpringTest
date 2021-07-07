@@ -1,17 +1,17 @@
 package com.example.demo;
 
-public class Greeting {
+public class Product {
 
-	private long id;
+	private String id;
 	private String content;
 	
 
-	public Greeting() {
-		this.id = -1;
+	public Product() {
+		this.id = "1";
 		this.content = "";
 	}
 
-	public Greeting(long id, String content) {
+	public Product(String id, String content) {
 		this.id = id;
 		this.content = content;
 	}
@@ -21,7 +21,7 @@ public class Greeting {
 		this.content = content;
 	}
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
