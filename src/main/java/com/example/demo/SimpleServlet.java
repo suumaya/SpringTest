@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 //generic:
 import javax.servlet.GenericServlet;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -26,6 +27,25 @@ javax.servlet.http.HttpServlet class is a slightly
 more advanced base class than the GenericServlet*/
 public class SimpleServlet extends HttpServlet {
 
+	 protected String myParam = null;
+
+	 //take param from web.xml:
+	 public void init(ServletConfig servletConfig) throws ServletException{
+		    this.myParam = servletConfig.getInitParameter("myParam");
+		  }
+	 
+	 //using generic not http for example:
+	 public void service(ServletRequest request, ServletResponse response)
+		        throws ServletException, IOException {
+
+		    response.getWriter().write("<html><body>myParam = " +
+		            this.myParam + "</body></html>");
+		  }
+	 
+	 
+	 
+	 
+	 
 	// when extends HttpServlet:
 	
 	 /* The HttpServlet class reads the HTTP request, and determines
@@ -115,6 +135,14 @@ doTrace()
         context.setAttribute("someValue", "aValue");
         //access:
         Object attribute = context.getAttribute("someValue");
+        
+        
+        //context parameters in web.xml:
+        //which can be read from all servlets in the application:
+        String myContextParam = request.getSession().getServletContext()
+        		.getInitParameter("myParam");
+        
+        
         /*
          * ServletContext attributes are available to all servlets in your application,
          * and between requests and sessions. That means that the attributes are
