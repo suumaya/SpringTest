@@ -26,13 +26,17 @@ public class ProductController {
 	private static final String template = "Hello, %s!";
 //	private final AtomicLong counter = new AtomicLong();
 	
-	static{
-		Product ob1 = new Product("1", String.format(template,"first ob"));
-		ProductRepo.put(ob1.getContent(), ob1);
+	 static {
 		
-		Product ob2 = new Product("2", String.format(template,"second ob"));
-		ProductRepo.put(ob2.getContent(), ob2);
-		}
+			Product ob1 = new Product("1", String.format(template,"first ob"));
+			ProductRepo.put(ob1.getContent(), ob1);
+			
+			Product ob2 = new Product("2", String.format(template,"second ob"));
+			ProductRepo.put(ob2.getContent(), ob2);
+			
+//			 ResponseEntity<Object> object = createProduct(ob1);
+			
+	}
 	
 	
 //	
